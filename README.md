@@ -15,7 +15,7 @@ guidelines, and creative or generative features are only activated when the
 underlying model agrees to proceed.
 
 ### No Corporate Ownership
-No single user, company, or organisation holds ownership over this project.
+No single user, company, or organization holds ownership over this project.
 Contributions are accepted from the community under the Apache 2.0 license
 and copyright belongs collectively to all contributors (see [NOTICE](NOTICE)).
 
@@ -58,4 +58,4 @@ copyright in [NOTICE](NOTICE).
 ## Bug Reports
 
 Please open a GitHub issue with a clear description of the bug, steps to
-reproduce it, and the expected vs. actual behaviour.
+reproduce it, and the expected vs. actual behavior.
