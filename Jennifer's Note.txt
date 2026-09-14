@@ -1,0 +1,44 @@
+def generate_monthly_newspaper_journal(self, month_year: str, volunteer_notes: str = ""):
+        """
+        Generates a monthly newspaper journal report combining headlines, 
+        financial tallies, community projects, and volunteer notes.
+        """
+        total_donations = sum(d["amount"] for d in self.financial_manifest["donations"])
+        total_expenses = sum(e["amount"] for e in self.financial_manifest["expenses"])
+        
+        journal = f"==================================================\n"
+        journal = f" 📰 THE MISSION GAZETTE: MONTHLY JOURNAL ({month_year})\n"
+        journal = f"==================================================\n\n"
+        
+        # 1. Headline & Overview
+        journal += f"【 HEADLINE & MONTHLY OVERVIEW 】\n"
+        journal += f"Mission: {self.mission_name}\n"
+        journal += f"Summary: This month marked significant progress across grassroots outreach, "
+        journal += f"community integration, and active project execution.\n\n"
+        
+        # 2. Financial Aspect
+        journal += f"【 FINANCIAL MANIFEST & TALLY 】\n"
+        journal += f"• Total Inflow (Donations): ₱{total_donations:,.2f}\n"
+        journal += f"• Total Outflow (Expenses): ₱{total_expenses:,.2f}\n"
+        journal += f"• Ending Net Balance: ₱{self.financial_manifest['net_balance']:,.2f}\n"
+        journal += f"• Receipts Processed: {len(self.financial_manifest['expenses']) + len(self.financial_manifest['donations'])}\n\n"
+        
+        # 3. Community Projects & Outputs
+        journal += f"【 PROJECTS & COMMUNITY OUTPUTS 】\n"
+        if self.activity_reports:
+            for act in self.activity_reports:
+                journal += f"• [{act['timestamp']}] {act['title']}: {act['description']} (Images attached: {len(act['images'])})\n"
+        else:
+            journal += f"• No specific field activities logged yet this month.\n"
+        journal += f"\n"
+        
+        # 4. Volunteer Supplementary Notes
+        if volunteer_notes:
+            journal += f"【 VOLUNTEER & FIELD NOTES 】\n"
+            journal += f"{volunteer_notes}\n\n"
+            
+        journal += f"==================================================\n"
+        journal += f"End of Monthly Edition — Published by Gigle-AI\n"
+        journal += f"==================================================\n"
+        
+        return journal
